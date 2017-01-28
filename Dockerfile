@@ -23,7 +23,7 @@ COPY $BASE_SRC $BASE_DST
 COPY $BASE_REPO/.pkg $BASE_DST/.pkg
 COPY $BASE_REPO/config $BASE_DST/config
 
-ARG BUILD_VERSION
+ENV BUILD_VERSION=10
 RUN if [ ! $BUILD_VERSION ]; then exit 1; fi
 RUN echo '{"build":{"version":"'$BUILD_VERSION'"}}' >> $BASE_DST/config/local.json
 
