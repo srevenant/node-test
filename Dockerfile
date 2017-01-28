@@ -3,9 +3,13 @@ FROM node:6-alpine
 
 # Assertion: for this to work, the BASE_SRC needs to be
 # checked into current folder under 'ops-batleth'
-ARG BASE_DST
-ARG BASE_SRC
-ARG BASE_REPO
+# not working in Docker cloud automated builds
+#ARG BASE_DST
+#ARG BASE_SRC
+#ARG BASE_REPO
+ENV BASE_DST=/app/test-node
+ENV BASE_REPO=./
+ENV BASE_SRC=/app/test-node
 
 # safety net
 RUN if [ ! $BASE_DST ]; then exit 1; fi
