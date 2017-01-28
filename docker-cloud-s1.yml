@@ -1,0 +1,25 @@
+tardis-s1:
+  image: 'divvypay/node-test:stg'
+  dns_search:
+    - divvypay.com
+  ports:
+    - '4000'
+  tags:
+    - stg
+  autoredeploy: true
+  sequential_deployment: true
+  deployment_strategy: high_availability
+  target_num_containers: 2
+tardis-s1-haproxy:
+  image: 'dockercloud/haproxy:latest'
+  links:
+    - tardis-s1
+  ports:
+    - '5000:80'
+  roles:
+    - global
+  tags:
+    - stg-lb
+  autoredeploy: false
+  sequential_deployment: true
+  deployment_strategy: every_node

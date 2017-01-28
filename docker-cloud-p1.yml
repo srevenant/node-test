@@ -1,0 +1,25 @@
+tardis-p1:
+  image: 'divvypay/node-test:prd'
+  dns_search:
+    - divvypay.com
+  ports:
+    - '4000'
+  tags:
+    - prd
+  autoredeploy: true
+  sequential_deployment: true
+  deployment_strategy: high_availability
+  target_num_containers: 2
+tardis-p1-haproxy:
+  image: 'dockercloud/haproxy:latest'
+  links:
+    - tardis-p1
+  ports:
+    - '6000:80'
+  roles:
+    - global
+  tags:
+    - prd-lb
+  autoredeploy: false
+  sequential_deployment: true
+  deployment_strategy: every_node
