@@ -9,7 +9,7 @@ FROM node:6-alpine
 #ARG BASE_REPO
 ENV BASE_DST=/app/test-node
 ENV BASE_REPO=./
-ENV BASE_SRC=/app/test-node
+ENV BASE_SRC=./app
 
 # safety net
 RUN if [ ! $BASE_DST ]; then exit 1; fi
