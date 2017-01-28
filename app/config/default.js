@@ -6,7 +6,7 @@ var defer = require('config/defer').deferConfig
 
 module.exports = {
     server: {
-        port: process.env.PORT || 3000
+        port: process.env.PORT || 4000
     },
     db: {
         uri: process.env.MONGO_URI || 'mongodb://localhost',
