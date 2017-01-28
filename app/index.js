@@ -62,11 +62,11 @@ router.get("/ok", function(request, response) {
         response.send("Ok!!\n")
     })
 
-app.use('/batleth', router)
+app.use('/sonic', router)
 
 /* *************************************************************************
  * startup
  */
-app.listen(8000)
+app.listen(config.server.port)
 console.log('Started on port ' + config.server.port)
 
