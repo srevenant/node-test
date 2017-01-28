@@ -3,16 +3,16 @@ FROM node:6-alpine
 
 # Assertion: for this to work, the BASE_SRC needs to be
 # checked into current folder under 'ops-batleth'
+ARG BASE_DST
 ARG BASE_SRC
 ARG BASE_REPO
-ARG BASE_DST
 
 # safety net
-RUN if [ ! $BASE_DST ]; then exit 1;\
-    elif [ ! $BASE_SRC ]; then exit 1;\
-    elif [ ! $BASE_REPO ]; then exit 1; fi
+RUN if [ ! $BASE_DST ]; then exit 1; fi
+RUN if [ ! $BASE_SRC ]; then exit 1; fi
+RUN if [ ! $BASE_REPO ]; then exit 1; fi
 
-RUN [ ! -d $BASE_DST ] && mkdir -p $BASE_DST
+RUN if [ ! -d $BASE_DST ]; then mkdir -p $BASE_DST; fi
 
 # the order is important, as Docker will fall back to the lowest
 # step in the chain.  Because of this, we start with package.json
