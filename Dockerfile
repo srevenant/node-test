@@ -35,4 +35,6 @@ RUN echo '{"build":{"version":"'$BUILD_VERSION'"}}' >> $BASE_DST/config/local.js
 
 EXPOSE 4000
 
-ENTRYPOINT ["/app/ephemer/bin/launch", "service"]
+#ENTRYPOINT ["/app/ephemer/bin/launch", "service"]
+WORKDIR $BASE_DST/app
+ENTRYPOINT ["node", "index.js"]
