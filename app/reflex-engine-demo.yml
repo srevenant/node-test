@@ -1,0 +1,17 @@
+version: '2'
+services:
+  engine:
+    image: reflexsc/engine
+    ports:
+      - "54000:54000"
+    links:
+      - db
+    #entrypoint: ["/usr/local/bin/reflex-engine", "--debug=*"]
+    environment:
+      - REFLEX_ENGINE_CONFIG={"db":{"host":"db"}}
+      - PYTHONUNBUFFERED=true
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_DATABASE=reflex_engine
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes

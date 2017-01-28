@@ -1,0 +1,29 @@
+#!/bin/bash
+
+SOURCED=
+if [[ "${BASH_SOURCE[0]}" != "${0}" ]]; then
+	SOURCED=true
+fi
+
+# boot strapping with what should exist in most places (python)
+NODE_VERSION=v$(python -c 'import json,sys;obj=json.load(sys.stdin);print obj["engines"]["node"]' < package.json)
+
+base=/app/node-$NODE_VERSION-linux-x64
+
+if [ -d $base ]; then
+	if [ $SOURCED ]; then
+		export NODE_VERSION
+		export NODE_BIN=$base/bin
+		export PATH=$NODE_BIN:$PATH
+	else
+		echo export NODE_VERSION=$NODE_VERSION
+		echo export NODE_BIN=$NODE_BIN
+		echo export PATH=$NODE_BIN:\$PATH
+	fi
+else
+	echo "Unable to find node version $NODE_VERSION"
+	if [ ! $SOURCED ]; then
+		exit 1
+	fi
+fi
+

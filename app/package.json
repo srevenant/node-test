@@ -1,0 +1,23 @@
+{
+    "name": "base",
+    "author": "brandon",
+    "license": "AGPL-3.0",
+    "private": true,
+    "version": "1.0.0",
+    "main": "index.js",
+    "engines": {
+        "node": "4.3.0"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo not configured"
+    },
+    "dependencies": {
+        "config": "*",
+        "express": "~4.0.0",
+        "mongodb": "*",
+        "body-parser": "~1.0.1"
+    },
+    "devDependencies": {
+    }
+}

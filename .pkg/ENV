@@ -1,0 +1,10 @@
+# NO_DOCKER_CACHE if defined will add --no-cache to docker build
+# BUILD_VERSION, if defined, will add it as a tag to the build image
+export DOCKER_NAME=test
+export DOCKER_TAGS=latest
+export DOCKER_IMAGE=divvypay/${DOCKER_NAME}
+export DOCKER_ARGS="BASE_SRC BASE_REPO BASE_DST BUILD_VERSION"
+export EPHEMER_SERVICE="${DOCKER_NAME}-d1"
+export BASE_SRC="./app"
+export BASE_REPO="./"
+export BASE_DST="/app/test"

@@ -1,0 +1,4 @@
+docker run -p=4000:4000 \
+       --name=${DOCKER_NAME} \
+       --hostname=${EPHEMER_SERVICE} \
+       ${DOCKER_IMAGE}

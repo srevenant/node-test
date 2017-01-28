@@ -1,0 +1,13 @@
+test-d1:
+  image: divvypay/test:latest
+ # environment:
+  ports:
+    - "4000"
+  dns_search:
+    - divvypay.com
+  tags:
+    - test
+  autoredeploy: true
+  sequential_deployment: true
+  deployment_strategy: high_availability
+  target_num_containers: 2

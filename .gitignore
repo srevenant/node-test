@@ -1,0 +1,37 @@
+node_modules
+npm-debug.log
+.DS_Store
+.env
+*.log
+*.todo
+coverage
+.nyc_output/
+public/groups/
+public/auth/
+public/apps/
+public/users/
+public/notifications/
+public/js/
+tests_output/
+i18n/messages
+
+# VS Code / Typescript
+
+.vscode/
+jsconfig.json
+tsd.json
+typings/
+
+# Intellij
+.idea/
+*.iml
+
+# vim
+*.swp
+
+# Editor
+.idea
+.idea/
+
+# my OSS code
+ops-batleth
