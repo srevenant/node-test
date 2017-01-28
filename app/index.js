@@ -62,11 +62,12 @@ router.get("/ok", function(request, response) {
         response.send("Ok!!\n")
     })
 
-app.use('/sonic', router)
+base = '/sonic'
+app.use(base, router)
 
 /* *************************************************************************
  * startup
  */
 app.listen(config.server.port)
-console.log('Started on port ' + config.server.port)
+console.log('running at localhost:' + config.server.port + base)
 
