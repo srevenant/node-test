@@ -59,7 +59,7 @@ router.get('/health', function(request, response) {
         }
     })
 router.get("/ok", function(request, response) {
-        response.send("Ok!</b>\n")
+        response.send("<b>Ok!</b>\n")
     })
 
 base = '/sonic'
